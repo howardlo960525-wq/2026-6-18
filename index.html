@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PlayMate 遊戲教練平台</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="PlayMate 功能選單">
+        <a class="brand" href="#dashboard" aria-label="PlayMate 首頁">
+          <span class="brand-mark">PM</span>
+          <span>
+            <strong>PlayMate</strong>
+            <small>遊戲教練與陪練媒合</small>
+          </span>
+        </a>
+
+        <nav class="nav-list">
+          <a class="active" href="#dashboard">總覽</a>
+          <a href="#match">教練媒合</a>
+          <a href="#chat">聊天室</a>
+          <a href="#booking">預約</a>
+          <a href="#video">影片分析</a>
+          <a href="#subscribe">訂閱</a>
+        </nav>
+
+        <section class="side-panel">
+          <div class="panel-title">教練屬性</div>
+          <div class="segments vertical" id="categoryButtons">
+            <button class="segment active" type="button" data-category="all">全部</button>
+            <button class="segment" type="button" data-category="rank">上分指揮</button>
+            <button class="segment" type="button" data-category="practice">技術訓練</button>
+            <button class="segment" type="button" data-category="fun">休閒陪玩</button>
+            <button class="segment" type="button" data-category="review">復盤分析</button>
+          </div>
+        </section>
+
+        <section class="side-panel subscription-mini">
+          <div class="panel-title">目前方案</div>
+          <strong id="currentPlan">Free</strong>
+          <span id="currentPlanNote">可瀏覽教練、使用基本聊天室與預約。</span>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <label class="search-box" aria-label="搜尋教練">
+            <span aria-hidden="true">Search</span>
+            <input id="searchInput" type="search" placeholder="搜尋遊戲、風格、屬性或教練名稱">
+          </label>
+          <div class="top-actions">
+            <select id="gameSelect" aria-label="選擇遊戲">
+              <option value="all">全部遊戲</option>
+              <option value="APEX">APEX</option>
+              <option value="LOL">英雄聯盟</option>
+              <option value="Valorant">Valorant</option>
+              <option value="Minecraft">Minecraft</option>
+              <option value="Genshin">原神</option>
+              <option value="Overwatch 2">Overwatch 2</option>
+            </select>
+            <button class="primary-button" id="quickBookButton" type="button">快速媒合</button>
+          </div>
+        </header>
+
+        <section class="dashboard-section" id="dashboard">
+          <div class="hero-copy">
+            <p class="eyebrow">PLAYER FIRST COACHING</p>
+            <h1>找到適合你節奏的遊戲教練。</h1>
+            <p>從上分、練槍、復盤到輕鬆陪玩，每位教練都會帶著不同的屬性與擅長項目，讓你用更直覺的方式選到想一起玩的夥伴。</p>
+            <div class="hero-actions">
+              <button class="primary-button" type="button" data-jump="#match">看教練</button>
+              <button class="secondary-button" type="button" data-jump="#chat">開啟聊天室</button>
+              <button class="secondary-button" type="button" data-jump="#video">影片分析</button>
+            </div>
+          </div>
+
+          <div class="feature-board" aria-label="功能總覽">
+            <article class="feature-tile">
+              <span>01</span>
+              <h2>教練媒合</h2>
+              <p>依屬性、遊戲、關鍵字和推薦分數排序。</p>
+            </article>
+            <article class="feature-tile">
+              <span>02</span>
+              <h2>聊天室</h2>
+              <p>先和教練確認需求、時間與練習重點。</p>
+            </article>
+            <article class="feature-tile">
+              <span>03</span>
+              <h2>預約管理</h2>
+              <p>選擇時長、留下備註並計算預估費用。</p>
+            </article>
+            <article class="feature-tile">
+              <span>04</span>
+              <h2>影片分析</h2>
+              <p>貼上 VOD 或時間點，取得本地重點整理。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel positioning-panel" id="match">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">MATCHING</p>
+              <h2>功能選單：教練媒合</h2>
+            </div>
+            <span class="feature-pill">20 位教練</span>
+          </div>
+          <p class="positioning-intro">
+            點選下方需求，系統會依目前教練的屬性、評分、上線狀態與擅長遊戲重新排序，並將最適合的人選推到前面。
+          </p>
+          <ul class="keyword-list" aria-label="媒合需求">
+            <li class="keyword-button" role="button" tabindex="0" data-keyword-analysis="diagnosis">
+              <span class="keyword-marker" aria-hidden="true"></span>
+              <div>
+                <strong>弱點診斷</strong>
+                <span>找出走位、決策、溝通或操作上的卡點。</span>
+              </div>
+              <span class="keyword-action">套用</span>
+            </li>
+            <li class="keyword-button" role="button" tabindex="0" data-keyword-analysis="review">
+              <span class="keyword-marker" aria-hidden="true"></span>
+              <div>
+                <strong>影片復盤</strong>
+                <span>適合需要逐段講解、整理改善清單的玩家。</span>
+              </div>
+              <span class="keyword-action">套用</span>
+            </li>
+            <li class="keyword-button" role="button" tabindex="0" data-keyword-analysis="win-rate">
+              <span class="keyword-marker" aria-hidden="true"></span>
+              <div>
+                <strong>提高勝率</strong>
+                <span>專注排位、角色池、團隊節奏與終局處理。</span>
+              </div>
+              <span class="keyword-action">套用</span>
+            </li>
+            <li class="keyword-button" role="button" tabindex="0" data-keyword-analysis="mechanics">
+              <span class="keyword-marker" aria-hidden="true"></span>
+              <div>
+                <strong>操作訓練</strong>
+                <span>練槍、連招、資源控制和反應速度。</span>
+              </div>
+              <span class="keyword-action">套用</span>
+            </li>
+            <li class="keyword-button" role="button" tabindex="0" data-keyword-analysis="chill">
+              <span class="keyword-marker" aria-hidden="true"></span>
+              <div>
+                <strong>輕鬆陪玩</strong>
+                <span>找能聊天、帶任務、穩定氣氛的教練。</span>
+              </div>
+              <span class="keyword-action">套用</span>
+            </li>
+          </ul>
+          <div class="keyword-analysis-panel" id="keywordAnalysisPanel" aria-live="polite">
+            <div class="keyword-analysis-empty">選擇一個需求後，這裡會顯示媒合邏輯與建議重點。</div>
+          </div>
+          <div class="keyword-recommendation-panel" id="keywordRecommendationPanel" aria-live="polite">
+            <div class="keyword-analysis-empty">推薦教練會依你的需求即時更新。</div>
+          </div>
+        </section>
+
+        <section class="toolbar" id="companions">
+          <div>
+            <p class="eyebrow">COACHES</p>
+            <h2>教練列表</h2>
+          </div>
+          <div class="result-meta" id="resultMeta">0 位教練</div>
+        </section>
+
+        <section class="companion-grid" id="companionGrid" aria-live="polite"></section>
+
+        <section class="panel chat-panel" id="chat">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">CHAT ROOM</p>
+              <h2>功能選單：聊天室</h2>
+            </div>
+            <span class="feature-pill" id="chatCoachStatus">尚未選擇教練</span>
+          </div>
+          <div class="chat-layout">
+            <aside class="chat-roster" aria-label="聊天室教練名單">
+              <div class="panel-title">最近可聊</div>
+              <div id="chatRoster"></div>
+            </aside>
+            <div class="chat-window">
+              <div class="chat-thread" id="chatThread" aria-live="polite"></div>
+              <div class="quick-replies">
+                <button type="button" data-chat-prompt="我想先確認你擅長的教學方式。">教學方式</button>
+                <button type="button" data-chat-prompt="我想安排一小時試教，請問今天有空嗎？">詢問時段</button>
+                <button type="button" data-chat-prompt="我想提高勝率，可以先幫我看問題嗎？">上分需求</button>
+              </div>
+              <form class="chat-form" id="chatForm">
+                <input id="chatInput" type="text" placeholder="輸入訊息給教練">
+                <button class="primary-button" type="submit">送出</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel booking-panel" id="booking">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">BOOKING</p>
+              <h2>功能選單：預約</h2>
+            </div>
+            <span class="status-pill" id="bookingStatus">尚未選擇</span>
+          </div>
+          <div class="booking-layout">
+            <div class="booking-summary" id="bookingSummary">
+              <p>先選擇一位教練，這裡會顯示預約摘要。</p>
+            </div>
+            <form class="booking-form" id="bookingForm">
+              <label>
+                <span>客戶身份</span>
+                <select id="customerTypeSelect">
+                  <option value="returning">一般客戶</option>
+                  <option value="new">新客首購</option>
+                </select>
+              </label>
+              <label>
+                <span>預約時長</span>
+                <select id="durationSelect">
+                  <option value="1">1 小時</option>
+                  <option value="2">2 小時</option>
+                  <option value="3">3 小時</option>
+                </select>
+              </label>
+              <label>
+                <span>備註</span>
+                <textarea id="bookingNotes" rows="4" placeholder="例如：想練 Valorant 進攻默契、希望語氣直接一點"></textarea>
+              </label>
+              <button class="primary-button" type="submit">建立預約</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="panel video-panel" id="video">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">VIDEO REVIEW</p>
+              <h2>功能選單：影片分析</h2>
+            </div>
+            <span class="feature-pill" id="videoPlanPill">Free：基本分析</span>
+          </div>
+          <div class="video-grid">
+            <form class="video-form" id="videoForm">
+              <label>
+                <span>影片網址</span>
+                <input id="videoUrl" type="url" placeholder="YouTube、Twitch VOD 或其他影片連結">
+              </label>
+              <label>
+                <span>重點備註</span>
+                <textarea id="videoNotes" rows="5" placeholder="例如：1:20 進場失誤，3:40 不確定該不該轉線"></textarea>
+              </label>
+              <button class="primary-button" type="submit">開始分析</button>
+            </form>
+            <div class="analysis-card" id="analysisResult">
+              <h3>分析結果</h3>
+              <p>送出影片或備註後，系統會整理重點、時間軸與下一步練習建議。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel subscribe-panel" id="subscribe">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">SUBSCRIPTION</p>
+              <h2>功能選單：訂閱</h2>
+            </div>
+          </div>
+          <div class="plan-grid" id="planGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="ad-modal" id="adModal" aria-hidden="true">
+      <div class="ad-dialog" role="dialog" aria-modal="true" aria-labelledby="adTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">SPONSOR VIDEO</p>
+            <h2 id="adTitle">Free 方案廣告</h2>
+          </div>
+          <button class="icon-button" id="adCloseButton" type="button" aria-label="關閉廣告">X</button>
+        </div>
+        <div class="ad-video" id="adVideoSlot"></div>
+        <p class="ad-note">升級 Plus 或 Pro 可關閉定時廣告，並解鎖更多分析額度。</p>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
